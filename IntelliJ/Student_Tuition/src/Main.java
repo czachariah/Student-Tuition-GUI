@@ -12,6 +12,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Program 3 - Tuition Manager");
         primaryStage.setScene(new Scene(root, 540, 800));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

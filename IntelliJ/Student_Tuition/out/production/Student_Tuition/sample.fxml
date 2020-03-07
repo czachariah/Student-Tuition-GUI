@@ -7,92 +7,98 @@
 
 <!-- Create a VBox Container that will hold my three sections of info. -->
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
-<children>
-      <Separator prefHeight="27.0" prefWidth="540.0" />
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
+      prefWidth="540.0" xmlns="http://javafx.com/javafx/10.0.2-internal">
+    <opaqueInsets>
+        <Insets left="100.0"/>
+    </opaqueInsets>
+    <Separator prefHeight="27.0" prefWidth="540.0"/>
 
     <!-- This GridPane will be able to hold the labels and text fields for user input. -->
-      <GridPane prefHeight="123.0" prefWidth="540.0">
+    <GridPane prefHeight="123.0" prefWidth="540.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="540.0" minWidth="10.0" prefWidth="540.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="540.0" minWidth="10.0" prefWidth="540.0"/>
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="44.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="44.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES"/>
         </rowConstraints>
-         <children>
-             <Label contentDisplay="RIGHT" prefHeight="23.0" prefWidth="202.0" text="First Name:" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <padding>
-                  <Insets left="100.0" />
-               </padding></Label>
+        <Label contentDisplay="RIGHT" prefHeight="23.0" prefWidth="202.0" text="First Name:" textAlignment="CENTER"
+               GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <GridPane.margin>
+                <Insets/>
+            </GridPane.margin>
+            <font>
+                <Font size="18.0"/>
+            </font>
+            <padding>
+                <Insets left="100.0"/>
+            </padding>
+        </Label>
 
-             <TextField GridPane.columnIndex="0" GridPane.rowIndex="0">
-               <GridPane.margin>
-                  <Insets left="200.0" right="50.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="18.0" />
-               </font></TextField>
+        <TextField GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <GridPane.margin>
+                <Insets left="200.0" right="50.0"/>
+            </GridPane.margin>
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </TextField>
 
-             <Label contentDisplay="RIGHT" prefHeight="23.0" prefWidth="202.0" text="Last Name:" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                 <GridPane.margin>
-                     <Insets />
-                 </GridPane.margin>
-                 <font>
-                     <Font size="18.0" />
-                 </font>
-                 <padding>
-                     <Insets left="100.0" />
-                 </padding></Label>
+        <Label contentDisplay="RIGHT" prefHeight="23.0" prefWidth="202.0" text="Last Name:" textAlignment="CENTER"
+               GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets/>
+            </GridPane.margin>
+            <font>
+                <Font size="18.0"/>
+            </font>
+            <padding>
+                <Insets left="100.0"/>
+            </padding>
+        </Label>
 
-             <TextField GridPane.columnIndex="0" GridPane.rowIndex="1">
-                 <GridPane.margin>
-                     <Insets left="200.0" right="50.0" />
-                 </GridPane.margin>
-               <font>
-                  <Font size="18.0" />
-               </font></TextField>
+        <TextField GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets left="200.0" right="50.0"/>
+            </GridPane.margin>
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </TextField>
 
-             <Label contentDisplay="RIGHT" prefHeight="23.0" prefWidth="202.0" text="Number of Credits:" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="2">
-                 <GridPane.margin>
-                     <Insets />
-                 </GridPane.margin>
-                 <font>
-                     <Font size="18.0" />
-                 </font>
-                 <padding>
-                     <Insets left="45.0" />
-                 </padding></Label>
+        <Label contentDisplay="RIGHT" prefHeight="23.0" prefWidth="202.0" text="Number of Credits:"
+               textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets/>
+            </GridPane.margin>
+            <font>
+                <Font size="18.0"/>
+            </font>
+            <padding>
+                <Insets left="45.0"/>
+            </padding>
+        </Label>
 
-             <TextField GridPane.columnIndex="0" GridPane.rowIndex="2">
-                 <GridPane.margin>
-                     <Insets left="200.0" right="50.0" />
-                 </GridPane.margin>
-               <font>
-                  <Font size="18.0" />
-               </font></TextField>
-         </children>
-      </GridPane>
-   <Separator prefHeight="26.0" prefWidth="600.0" />
-      <GridPane>
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="411.0" minWidth="10.0" prefWidth="357.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0" prefWidth="183.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-      </GridPane>
-    <Separator layoutX="10.0" layoutY="137.0" prefHeight="26.0" prefWidth="600.0" />
-</children>
-   <opaqueInsets>
-      <Insets left="100.0" />
-   </opaqueInsets>
+        <TextField GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets left="200.0" right="50.0"/>
+            </GridPane.margin>
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </TextField>
+    </GridPane>
+    <Separator prefHeight="26.0" prefWidth="600.0"/>
+    <GridPane>
+      <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="411.0" minWidth="10.0" prefWidth="357.0"/>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0" prefWidth="183.0"/>
+      </columnConstraints>
+      <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      </rowConstraints>
+    </GridPane>
+    <Separator layoutX="10.0" layoutY="137.0" prefHeight="26.0" prefWidth="600.0"/>
 </VBox>
