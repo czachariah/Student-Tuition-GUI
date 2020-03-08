@@ -188,7 +188,7 @@
                     <GridPane.margin>
                         <Insets left="15.0" />
                     </GridPane.margin></CheckBox>
-            <TextField id="FundingAmount" GridPane.columnIndex="2">
+            <TextField id="FundingAmount" promptText="\$" GridPane.columnIndex="2" GridPane.rowIndex="0">
                <font>
                   <Font size="18.0" />
                </font>
