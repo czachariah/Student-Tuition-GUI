@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -98,38 +99,153 @@
     <GridPane id="MiddleGrid" prefHeight="163.0" prefWidth="550.0">
         <!-- Grid constraint 2x1 -->
       <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="511.0" minWidth="10.0" prefWidth="505.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0" prefWidth="172.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="529.0" minWidth="10.0" prefWidth="524.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0" prefWidth="176.0" />
       </columnConstraints>
       <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
 
         <!-- use stack pane to put multiple attributes for the user on top and use the pane as a good background. -->
-        <StackPane id="OptionsStack" opacity="0.37" prefHeight="143.0" prefWidth="368.0" style="-fx-border-color: grey;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <StackPane id="OptionsStack" blendMode="DARKEN" depthTest="DISABLE" prefHeight="143.0" prefWidth="368.0" style="-fx-border-color: grey;" GridPane.columnIndex="0" GridPane.rowIndex="0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
-            <GridPane id="OptionsGrid">
+            <GridPane id="OptionsGrid" prefHeight="133.0" prefWidth="573.0">
                 <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="179.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="181.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="142.0" minWidth="10.0" prefWidth="142.0" />
                 </columnConstraints>
                 <rowConstraints>
                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 </rowConstraints>
+
+                <!-- Radio Button for INSTATE -->
+               <RadioButton id="InstateRadioButton" contentDisplay="CENTER" mnemonicParsing="false" text="INSTATE" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="25.0" />
+               </GridPane.margin>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor></RadioButton>
+
+                <!-- Radio Button for OUTSTATE -->
+                <RadioButton id="OutStateRadioButton" contentDisplay="CENTER" mnemonicParsing="false" text="OUTSTATE" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <GridPane.margin>
+                        <Insets left="25.0" />
+                    </GridPane.margin>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor></RadioButton>
+
+                <!-- Radio Button for INTERNATIONAL -->
+                <RadioButton id="InternationalRadioButton" contentDisplay="CENTER" mnemonicParsing="false" text="INTERNATIONAL" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <GridPane.margin>
+                        <Insets left="25.0" />
+                    </GridPane.margin>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor></RadioButton>
+
+                <!-- Check Box for Funding -->
+                <CheckBox id="FundingCheck" mnemonicParsing="false" text="Funding" GridPane.columnIndex="1" GridPane.rowIndex="0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin></CheckBox>
+
+                <!-- Check Box for Tri-State Check -->
+                <CheckBox id="TriStateCheck" mnemonicParsing="false" text="Tri-State Student" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <GridPane.margin>
+                        <Insets left="15.0" />
+                    </GridPane.margin></CheckBox>
+
+                <!-- Check Box for Exchange Check -->
+                <CheckBox id="ExchangeCheck" mnemonicParsing="false" text="Exchange Student" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <GridPane.margin>
+                        <Insets left="15.0" />
+                    </GridPane.margin></CheckBox>
+            <TextField id="FundingAmount" GridPane.columnIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="3.0" left="3.0" right="5.0" top="3.0" />
+               </GridPane.margin>
+            </TextField>
+
             </GridPane>
         </StackPane>
 
+        <!-- Grid to put User Option Buttons -->
+        <GridPane id="OptionButtonGrid" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+
+            <!-- Add Button -->
+            <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="138.0" text="Add" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <GridPane.margin>
+               <Insets left="15.0" />
+            </GridPane.margin></Button>
+
+            <!-- Remove Button -->
+            <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="138.0" text="Remove" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <font>
+                    <Font size="16.0" />
+                </font>
+                <GridPane.margin>
+                    <Insets left="15.0" />
+                </GridPane.margin></Button>
+
+            <!-- Print Button -->
+            <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="138.0" text="Print" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                <font>
+                    <Font size="16.0" />
+                </font>
+                <GridPane.margin>
+                    <Insets left="15.0" />
+                </GridPane.margin></Button>
+
+        </GridPane>
+
     </GridPane>
-    <Separator id="BottomSeperator" layoutX="10.0" layoutY="137.0" prefHeight="26.0" prefWidth="600.0" />
-   <TextArea id="TextOutput" editable="false" minHeight="200.0" minWidth="650.0" prefHeight="500.0" prefWidth="650.0">
+
+    <Separator id="BottomSeperator" layoutX="10.0" layoutY="137.0" prefHeight="16.0" prefWidth="700.0" />
+
+    <!-- Text area where any output and error messages go to the user from the program. -->
+   <TextArea id="TextOutput" editable="false" minHeight="200.0" minWidth="650.0" prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: grey;">
       <VBox.margin>
          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
       </VBox.margin>
