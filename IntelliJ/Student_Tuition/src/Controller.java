@@ -14,8 +14,14 @@ public class Controller
 
     public final int CRED_MIN_IN_OUT = 0;
     public final int CRED_MIN_INTERN = 9;
+
     public final int FUND_MIN = 0;
+    public final int DEFAULT_FUNDING = 0;
+
     public final String EMPTY = "";
+
+    public final boolean TRUE = true;
+    public final boolean FALSE = false;
 
     // three text fields on the top
     @FXML
@@ -71,14 +77,14 @@ public class Controller
         String firstName = FirstNameText.getText();
         if (firstName.equals(EMPTY))
         {
-            TextOutput.appendText("Please make sure to enter a First Name.\n\n");
+            TextOutput.appendText("ERROR: Please make sure to enter a First Name.\n\n");
             return;
         }
 
         String lastName = LastNameText.getText();
         if (lastName.equals(EMPTY))
         {
-            TextOutput.appendText("Please make sure to enter a Last Name.\n\n");
+            TextOutput.appendText("ERROR: Please make sure to enter a Last Name.\n\n");
             return;
         }
 
@@ -89,75 +95,161 @@ public class Controller
         }
         catch (Exception ex)
         {
-            TextOutput.appendText("Please make sure the number of credits entered is an Integer number greater than 0.\n\n");
+            TextOutput.appendText("ERROR: Please make sure the number of credits entered is an Integer number greater than 0.\n\n");
             return;
         }
         if (credits <= CRED_MIN_IN_OUT)
         {
-            TextOutput.appendText("Please make sure the number of credits is strictly greater than 0.\n\n");
+            TextOutput.appendText("ERROR: Please make sure the number of credits is strictly greater than 0.\n\n");
             return;
         }
 
         if (isInStateRadioButtonClicked)
         {
-            if (isFundingCheckClicked)
-            {
-                int funds = 0;
-                try
-                {
-                    funds = Integer.parseInt(FundingAmount.getText());
-                    if (funds >= FUND_MIN)
-                    {
-                        if (backEnd.addInstateGUI(firstName,lastName,credits,funds))
-                        {
-                            TextOutput.appendText(firstName + " " + lastName + " is added to the list.\n\n");
-                            setAllDefault();
-                        }
-                        else
-                        {
-                            TextOutput.appendText(firstName + " " + lastName + " is already on the list.\n\n");
-                            setAllDefault();
-                        }
-                    }
-                    else
-                    {
-                        TextOutput.appendText("Please make sure the amount of funding entered is greater than or equal to 0.\n\n");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    TextOutput.appendText("Please make sure the amount of funding entered is an Integer number\n" +
-                            "greater than or equal to 0.\n\n");
-                }
-            }
-            else
-            {
-                if (backEnd.addInstateGUI(firstName,lastName,credits,0))
-                {
-                    TextOutput.appendText(firstName + " " + lastName + " is added to the list.\n\n");
-                    setAllDefault();
-                }
-                else
-                {
-                    TextOutput.appendText(firstName + " " + lastName + " is already on the list.\n\n");
-                    setAllDefault();
-                }
-            }
+            addInStateStudent(firstName,lastName,credits);
         }
         else if (isOutStateRadioButtonClicked)
         {
-            TextOutput.appendText("OutState\n");
+            addOutStateStudent(firstName,lastName,credits);
         }
         else if (isInternationalRadioButtonClicked)
         {
-            TextOutput.appendText("International\n");
+            if (credits < CRED_MIN_INTERN)
+            {
+                TextOutput.appendText("ERROR: Please make sure the number of credits is strictly greater than or equal to 9 for an International Student.\n\n");
+                return;
+            }
+            addInternationalStudent(firstName,lastName,credits);
         }
         else
         {
-            TextOutput.appendText("Please make sure to choose the correct type of Student that is to be added.\n\n");
-            return;
+            TextOutput.appendText("ERROR: Please make sure to choose the correct type of Student that is to be added.\n\n");
         }
     } // addNewStudent()
+
+    /**
+     * This private method is used to add Instate Students to the list.
+     * @param firstName is the first name of the Student
+     * @param lastName is the last name of the Student
+     * @param credits is the number of credits that the Student is taking
+     */
+    private void addInStateStudent(String firstName , String lastName , int credits)
+    {
+        if (isFundingCheckClicked)
+        {
+            int funds = 0;
+            try
+            {
+                funds = Integer.parseInt(FundingAmount.getText());
+                if (funds >= FUND_MIN)
+                {
+                    if (backEnd.addInstateGUI(firstName,lastName,credits,funds))
+                    {
+                        TextOutput.appendText(firstName + " " + lastName + " is added to the list.\n\n");
+                        setAllDefault();
+                    }
+                    else
+                    {
+                        TextOutput.appendText("ERROR: " + firstName + " " + lastName + " is already on the list.\n\n");
+                        setAllDefault();
+                    }
+                }
+                else
+                {
+                    TextOutput.appendText("ERROR: Please make sure the amount of funding entered is greater than or equal to 0.\n\n");
+                }
+            }
+            catch (Exception ex)
+            {
+                TextOutput.appendText("ERROR: Please make sure the amount of funding entered is an Integer number greater than or equal to 0.\n\n");
+            }
+        }
+        else
+        {
+            if (backEnd.addInstateGUI(firstName,lastName,credits,DEFAULT_FUNDING))
+            {
+                TextOutput.appendText(firstName + " " + lastName + " is added to the list.\n\n");
+                setAllDefault();
+            }
+            else
+            {
+                TextOutput.appendText("ERROR: " + firstName + " " + lastName + " is already on the list.\n\n");
+                setAllDefault();
+            }
+        }
+    } // addInStateStudent
+
+    /**
+     * This is a private method used to add Out-State Students to the list.
+     * @param firstName is the first name of the Student
+     * @param lastName is the last name of the Student
+     * @param credits is the number of credits that the Student is taking
+     */
+    private void addOutStateStudent(String firstName , String lastName , int credits)
+    {
+        if (isTriStateCheckClicked)
+        {
+            if (backEnd.addOutStateGUI(firstName,lastName,credits,TRUE))
+            {
+                TextOutput.appendText(firstName + " " + lastName + " is added to the list.\n\n");
+                setAllDefault();
+            }
+            else
+            {
+                TextOutput.appendText("ERROR: " + firstName + " " + lastName + " is already on the list.\n\n");
+                setAllDefault();
+            }
+        }
+        else
+        {
+            if (backEnd.addOutStateGUI(firstName,lastName,credits,FALSE))
+            {
+                TextOutput.appendText(firstName + " " + lastName + " is added to the list.\n\n");
+                setAllDefault();
+            }
+            else
+            {
+                TextOutput.appendText("ERROR: " + firstName + " " + lastName + " is already on the list.\n\n");
+                setAllDefault();
+            }
+        }
+    } // addOutStateStudent()
+
+    /**
+     * This is a private method used to add an International Student to the list.
+     * @param firstName is the first name of the Student
+     * @param lastName is the last name of the Student
+     * @param credits is the number of credits that the Student is taking
+     */
+    private void addInternationalStudent(String firstName, String lastName , int credits)
+    {
+        if (isExchangeCheckClicked)
+        {
+            if (backEnd.addInternGUI(firstName,lastName,credits,TRUE))
+            {
+                TextOutput.appendText(firstName + " " + lastName + " is added to the list.\n\n");
+                setAllDefault();
+            }
+            else
+            {
+                TextOutput.appendText("ERROR: " + firstName + " " + lastName + " is already on the list.\n\n");
+                setAllDefault();
+            }
+        }
+        else
+        {
+            if (backEnd.addInternGUI(firstName,lastName,credits,FALSE))
+            {
+                TextOutput.appendText(firstName + " " + lastName + " is added to the list.\n\n");
+                setAllDefault();
+            }
+            else
+            {
+                TextOutput.appendText("ERROR: " + firstName + " " + lastName + " is already on the list.\n\n");
+                setAllDefault();
+            }
+        }
+    } // addInternationalStudent()
 
     /**
      * This method is connected to the InState Radio Button. Will toggle the other radio buttons off
@@ -382,7 +474,7 @@ public class Controller
      * This method can be used to set all the areas of the GUI to its default
      * after adding and removing Students.
      */
-    public void setAllDefault()
+    private void setAllDefault()
     {
         // clear the top text fields
         FirstNameText.clear();
@@ -423,94 +515,66 @@ public class Controller
         FundingAmount.setDisable(false);
     } // setAllDefault()
 
+    public void removeStudent()
+    {
+        String firstName = FirstNameText.getText();
+        if (firstName.equals(EMPTY))
+        {
+            TextOutput.appendText("ERROR: Please make sure to enter a First Name.\n\n");
+            return;
+        }
+
+        String lastName = LastNameText.getText();
+        if (lastName.equals(EMPTY))
+        {
+            TextOutput.appendText("ERROR: Please make sure to enter a Last Name.\n\n");
+            return;
+        }
+
+        if (backEnd.removeGUI(firstName,lastName))
+        {
+            TextOutput.appendText(firstName + " " + lastName + " has been removed from the list.\n\n");
+            setAllDefault();
+        }
+        else
+        {
+            TextOutput.appendText(firstName + " " + lastName + " is not on the list.\n\n");
+            setAllDefault();
+        }
+    } // removeStudent
+
+    /**
+     * This method will be connected to the Print button.
+     * This will print out the current Students that are in the list
+     * along with the tuition that each one needs to pay.
+     */
     public void printStudents()
     {
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-    public void getText()
-    {
-        String firstName = null;
-        String lastName = null;
-        int creds = 0;
-        int funds = 0;
-        boolean done;
-
-        if (!(FirstNameText.getText().equals("")))
+        setAllDefault();
+        if (backEnd == null)
         {
-            TextOutput.appendText("First Name : " + FirstNameText.getText() + "\n");
-            firstName = FirstNameText.getText();
+            backEnd = new TuitionManager();
+            TextOutput.appendText("There are currently no Students on the list.\n\n");
+            return;
+        }
+        Student[] list = backEnd.listForPrinting();
+        int numStudents = backEnd.numCurrentStudents();
+
+        if (backEnd.cs213.isEmpty())
+        {
+            TextOutput.appendText("There are currently no Students on the list.\n\n");
         }
         else
         {
-            TextOutput.appendText("Empty value for First Name\n");
-        }
-        if (!(LastNameText.getText().equals("")))
-        {
-            TextOutput.appendText("Last Name: " + LastNameText.getText() + "\n");
-            lastName = LastNameText.getText();
-        }
-        else
-        {
-            TextOutput.appendText("Empty value for Last Name\n");
-        }
-        if (!(NumCreditsText.getText().equals("")))
-        {
-            TextOutput.appendText("Number of Credits: " + NumCreditsText.getText() + "\n");
-            creds = Integer.parseInt(NumCreditsText.getText());
-        }
-        else
-        {
-            TextOutput.appendText("Empty value for Number of Credits\n");
-        }
-        if (!(FundingAmount.getText().equals("")))
-        {
-            TextOutput.appendText("Funding Amount: " + FundingAmount.getText() + "\n");
-            funds = Integer.parseInt(FundingAmount.getText());
-        }
-        else
-        {
-            TextOutput.appendText("Empty value for Funding Amount\n");
-        }
-        done = backEnd.addInstateGUI(firstName,lastName,creds,funds);
-        TextOutput.appendText("" + done + "\n\n");
-
-        Student[] list = backEnd.printGUI();
-
-        if (list[0] == null)
-        {
-            //System.out.println("There are 0 students currently on the list.");
-            TextOutput.appendText("There are 0 Students currently on the list.\n\n");
-        }
-        else
-        {
-            TextOutput.appendText("Here are the following Students on the list.\n");
-            int i = 0;
-            /*
-            I want to build a for-loop here, so work on a method to try to get the numberOfStudents here so that it can copy the OG print variable
-             */
-            while (list[i] != null)
+            TextOutput.appendText("Here are the current Students on the list with the tuition amount they are required to pay:\n");
+            for (int i = 0 ; i < numStudents ; i++)
             {
-                TextOutput.appendText("" + list[i].toString() + " , Tuition Due: $" + list[i].tuitionDue());
-                i++;
+                TextOutput.appendText(list[i].toString() + " , Tuition Due: $" + list[i].tuitionDue() + "\n");
             }
             TextOutput.appendText("-- end of the list --\n\n");
-
         }
-
-    }
-}
+    } // printStudents()
+} // Controller
 
 /*
 1) Go to TutitonManager.java and add more commands : make sure that the commands now look at the whole first word not just the first char

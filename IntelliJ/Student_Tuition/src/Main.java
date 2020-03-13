@@ -10,11 +10,11 @@ import javafx.stage.Stage;
  */
 public class Main extends Application
 {
-    public final int FIXED_WIDTH = 700;
-    public final int FIXED_LENGTH = 900;
+    public final int FIXED_WIDTH = 900;
+    public final int FIXED_LENGTH = 1000;
 
     /**
-     * This method will build the GUi using sample.fxml and get it ready for the User.
+     * This method will build the GUI using sample.fxml and get it ready for the User.
      * @param primaryStage
      * @throws Exception
      */
