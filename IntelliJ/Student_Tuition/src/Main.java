@@ -4,21 +4,36 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+/**
+ * This is the class that can be used to build and run the GUI for the user.
+ * @author Chris Zachariah (cvz2)
+ */
+public class Main extends Application
+{
+    public final int FIXED_WIDTH = 700;
+    public final int FIXED_LENGTH = 900;
 
+    /**
+     * This method will build the GUi using sample.fxml and get it ready for the User.
+     * @param primaryStage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception
     {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Program 3 - Tuition Manager");
-        primaryStage.setScene(new Scene(root, 700, 900));
+        primaryStage.setScene(new Scene(root, FIXED_WIDTH, FIXED_LENGTH));
         primaryStage.setResizable(false);
         primaryStage.show();
-    }
+    } // start()
 
-
+    /**
+     * This method will launch the GUI for the user.
+     * @param args are the arguments
+     */
     public static void main(String[] args)
     {
         launch(args);
-    }
-}
+    } // main()
+} // Main

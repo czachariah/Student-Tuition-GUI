@@ -6,6 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<!-- @author Chris Zachariah (cvz2) -->
+
 <!-- Create a VBox Container that will hold my three sections of info. -->
 
 <VBox id="MainBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
@@ -60,7 +62,7 @@
                 <Insets left="100.0" />
             </padding>
         </Label>
-        <TextField id="LastNameText" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <TextField id="LastNameText" GridPane.columnIndex="0" GridPane.rowIndex="1" fx:id="LastNameText">
             <GridPane.margin>
                 <Insets left="200.0" right="50.0" />
             </GridPane.margin>
@@ -81,7 +83,7 @@
                 <Insets left="45.0" />
             </padding>
         </Label>
-        <TextField id="NumCreditsText" GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <TextField id="NumCreditsText" GridPane.columnIndex="0" GridPane.rowIndex="2" fx:id="NumCreditsText">
             <GridPane.margin>
                 <Insets left="200.0" right="50.0" />
             </GridPane.margin>
@@ -127,7 +129,7 @@
                 </rowConstraints>
 
                 <!-- Radio Button for INSTATE -->
-               <RadioButton id="InstateRadioButton" contentDisplay="CENTER" mnemonicParsing="false" text="INSTATE" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0">
+               <RadioButton id="InstateRadioButton" contentDisplay="CENTER" mnemonicParsing="false" text="INSTATE" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#InStateRadioButtonClicked" fx:id="InstateRadioButton">
                <font>
                   <Font size="16.0" />
                </font>
@@ -139,7 +141,7 @@
                </cursor></RadioButton>
 
                 <!-- Radio Button for OUTSTATE -->
-                <RadioButton id="OutStateRadioButton" contentDisplay="CENTER" mnemonicParsing="false" text="OUTSTATE" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <RadioButton id="OutStateRadioButton" contentDisplay="CENTER" mnemonicParsing="false" text="OUTSTATE" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1" onAction="#OutStateRadioButtonClicked" fx:id="OutStateRadioButton">
                     <font>
                         <Font size="16.0" />
                     </font>
@@ -151,7 +153,7 @@
                     </cursor></RadioButton>
 
                 <!-- Radio Button for INTERNATIONAL -->
-                <RadioButton id="InternationalRadioButton" contentDisplay="CENTER" mnemonicParsing="false" text="INTERNATIONAL" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                <RadioButton id="InternationalRadioButton" contentDisplay="CENTER" mnemonicParsing="false" text="INTERNATIONAL" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="2" onAction="#InternationalRadioButtonClicked" fx:id="InternationalRadioButton">
                     <font>
                         <Font size="16.0" />
                     </font>
@@ -163,7 +165,7 @@
                     </cursor></RadioButton>
 
                 <!-- Check Box for Funding -->
-                <CheckBox id="FundingCheck" mnemonicParsing="false" text="Funding" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <CheckBox id="FundingCheck" mnemonicParsing="false" text="Funding" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#fundingBoxClicked" fx:id="FundingCheck">
                <font>
                   <Font size="16.0" />
                </font>
@@ -172,7 +174,7 @@
                </GridPane.margin></CheckBox>
 
                 <!-- Check Box for Tri-State Check -->
-                <CheckBox id="TriStateCheck" mnemonicParsing="false" text="Tri-State Student" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <CheckBox id="TriStateCheck" mnemonicParsing="false" text="Tri-State Student" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#triStateBoxClicked" fx:id="TriStateCheck">
                     <font>
                         <Font size="16.0" />
                     </font>
@@ -181,14 +183,14 @@
                     </GridPane.margin></CheckBox>
 
                 <!-- Check Box for Exchange Check -->
-                <CheckBox id="ExchangeCheck" mnemonicParsing="false" text="Exchange Student" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <CheckBox id="ExchangeCheck" mnemonicParsing="false" text="Exchange Student" GridPane.columnIndex="1" GridPane.rowIndex="2" onAction="#exchangeBoxClicked" fx:id="ExchangeCheck">
                     <font>
                         <Font size="16.0" />
                     </font>
                     <GridPane.margin>
                         <Insets left="15.0" />
                     </GridPane.margin></CheckBox>
-            <TextField id="FundingAmount" promptText="\$" GridPane.columnIndex="2" GridPane.rowIndex="0">
+            <TextField id="FundingAmount" promptText="\$" GridPane.columnIndex="2" GridPane.rowIndex="0" fx:id="FundingAmount">
                <font>
                   <Font size="18.0" />
                </font>
@@ -212,7 +214,7 @@
             </rowConstraints>
 
             <!-- Add Button -->
-            <Button id="AddButton" mnemonicParsing="false"  prefHeight="32.0" prefWidth="138.0" text="Add" GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#getText">
+            <Button id="AddButton" mnemonicParsing="false"  prefHeight="32.0" prefWidth="138.0" text="Add" GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#addNewStudent" fx:id="AddButton">
             <font>
                <Font size="16.0" />
             </font>
@@ -221,7 +223,7 @@
             </GridPane.margin></Button>
 
             <!-- Remove Button -->
-            <Button id="RemoveButton" mnemonicParsing="false" prefHeight="32.0" prefWidth="138.0" text="Remove" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <Button id="RemoveButton" mnemonicParsing="false" prefHeight="32.0" prefWidth="138.0" text="Remove" GridPane.columnIndex="0" GridPane.rowIndex="1" fx:id="RemoveButton">
                 <font>
                     <Font size="16.0" />
                 </font>
@@ -230,7 +232,7 @@
                 </GridPane.margin></Button>
 
             <!-- Print Button -->
-            <Button id="PrintButton" mnemonicParsing="false" prefHeight="32.0" prefWidth="138.0" text="Print" GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <Button id="PrintButton" mnemonicParsing="false" prefHeight="32.0" prefWidth="138.0" text="Print" GridPane.columnIndex="0" GridPane.rowIndex="2" fx:id="PrintButton">
                 <font>
                     <Font size="16.0" />
                 </font>
