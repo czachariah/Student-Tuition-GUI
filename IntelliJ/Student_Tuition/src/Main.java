@@ -15,8 +15,8 @@ public class Main extends Application
 
     /**
      * This method will build the GUI using sample.fxml and get it ready for the User.
-     * @param primaryStage
-     * @throws Exception
+     * @param primaryStage the main Student-Tuition-GUI Stage
+     * @throws Exception any Exception
      */
     @Override
     public void start(Stage primaryStage) throws Exception

@@ -1,3 +1,7 @@
+/**
+ * This is the class used to run the terminal version of the Student Tuition Lister.
+ * @author Chris Zachariah
+ */
 public class Proj3Terminal {
     /**
      * Use this main() to run the program.

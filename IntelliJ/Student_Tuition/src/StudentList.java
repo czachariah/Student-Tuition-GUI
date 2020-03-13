@@ -54,7 +54,7 @@ public class StudentList
     } // grow()
 
     /**
-     * This method will check if the list id empty or not.
+     * This method will check if the list is empty or not.
      * @return true if empty and false otherwise
      */
     public boolean isEmpty()

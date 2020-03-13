@@ -515,6 +515,9 @@ public class Controller
         FundingAmount.setDisable(false);
     } // setAllDefault()
 
+    /**
+     * This method is used to remove a Student from the list.
+     */
     public void removeStudent()
     {
         String firstName = FirstNameText.getText();
