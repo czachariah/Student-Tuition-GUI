@@ -6,6 +6,7 @@ import org.w3c.dom.Text;
  * This class is the controller for all the actions for the GUI and will connect
  * with the TuitionManager to keep track of the Students.
  * @author Chris Zachariah (cvz2)
+ * @author Anthony Topol (at877)
  */
 public class Controller
 {
@@ -75,6 +76,7 @@ public class Controller
      */
     public void addNewStudent() {
         String firstName = FirstNameText.getText();
+        firstName = firstName.trim();
         if (firstName.equals(EMPTY))
         {
             TextOutput.appendText("ERROR: Please make sure to enter a First Name.\n\n");
@@ -82,6 +84,7 @@ public class Controller
         }
 
         String lastName = LastNameText.getText();
+        lastName = lastName.trim();
         if (lastName.equals(EMPTY))
         {
             TextOutput.appendText("ERROR: Please make sure to enter a Last Name.\n\n");
@@ -89,9 +92,11 @@ public class Controller
         }
 
         int credits = 0;
+        String creds = null;
         try
         {
-            credits = Integer.parseInt(NumCreditsText.getText());
+            creds = NumCreditsText.getText();
+            credits = Integer.parseInt(creds.trim());
         }
         catch (Exception ex)
         {
@@ -138,9 +143,11 @@ public class Controller
         if (isFundingCheckClicked)
         {
             int funds = 0;
+            String fundString = null;
             try
             {
-                funds = Integer.parseInt(FundingAmount.getText());
+                fundString = FundingAmount.getText();
+                funds = Integer.parseInt(fundString.trim());
                 if (funds >= FUND_MIN)
                 {
                     if (backEnd.addInstateGUI(firstName,lastName,credits,funds))
@@ -578,10 +585,3 @@ public class Controller
         }
     } // printStudents()
 } // Controller
-
-/*
-1) Go to TutitonManager.java and add more commands : make sure that the commands now look at the whole first word not just the first char
-2) Add more methods to the Tuition Manager class that return T/F or the StudentList to the Controller
-3) Make sure to test the code at the end and see if it still works normally and for the GUI
-4) EXTRA: for adding people in, change the system.out.println() to "First Last has been added" and make sure to do the same for the GUI version  of the add method
- */

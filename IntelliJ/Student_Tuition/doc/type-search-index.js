@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"<Unnamed>","l":"Controller"},{"p":"<Unnamed>","l":"Instate"},{"p":"<Unnamed>","l":"International"},{"p":"<Unnamed>","l":"Main"},{"p":"<Unnamed>","l":"Outstate"},{"p":"<Unnamed>","l":"Proj3Terminal"},{"p":"<Unnamed>","l":"Student"},{"p":"<Unnamed>","l":"StudentList"},{"p":"<Unnamed>","l":"TuitionManager"}]

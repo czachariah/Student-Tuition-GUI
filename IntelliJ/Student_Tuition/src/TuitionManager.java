@@ -253,7 +253,7 @@ public class TuitionManager
     } // addOutState()
 
     /**
-     * This method is used to add an Out-Of-State Student to the list.
+     * This method is used by the GUI to add an Out-Of-State Student to the list.
      * @param firstName the first name of the Student
      * @param lastName the last name of the Student
      * @param credits is number of credits the Student is taking
@@ -363,7 +363,7 @@ public class TuitionManager
     } // addIntern()
 
     /**
-     * This method is used to add an International Student to the list.
+     * This method is used by the GUI to add an International Student to the list.
      * @param firstName is the first name of the Student
      * @param lastName is the last name of the Student
      * @param credits is the number of credits the Student is taking

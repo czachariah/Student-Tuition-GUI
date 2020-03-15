@@ -7,10 +7,11 @@ import javafx.stage.Stage;
 /**
  * This is the class that can be used to build and run the GUI for the user.
  * @author Chris Zachariah (cvz2)
+ * @author Anthony Topol (at877)
  */
 public class Main extends Application
 {
-    public final int FIXED_WIDTH = 900;
+    public final int FIXED_WIDTH = 920;
     public final int FIXED_LENGTH = 1000;
 
     /**

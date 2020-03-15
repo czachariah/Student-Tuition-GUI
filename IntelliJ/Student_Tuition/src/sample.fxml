@@ -7,9 +7,10 @@
 <?import javafx.scene.text.*?>
 
 <!-- @author Chris Zachariah (cvz2) -->
-<!-- Create a VBox Container that will hold my three sections of info. -->
+<!-- @author Anthony Topol (at877) -->
 
-<VBox id="MainBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<!-- Create a VBox Container that will hold my three sections of info. -->
+<VBox id="MainBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <opaqueInsets>
         <Insets left="100.0" />
     </opaqueInsets>
@@ -90,11 +91,15 @@
                 <Font size="18.0" />
             </font>
         </TextField>
+      <VBox.margin>
+         <Insets left="100.0" />
+      </VBox.margin>
     </GridPane>
 
     <Separator id="MiddleSeparator" prefHeight="26.0" prefWidth="600.0" />
 
-    <!-- This middle grid will hold the options for type of students with other attributes.
+    <!--
+    This middle grid will hold the options for type of students with other attributes.
     Also hold the different actions that can be performed by the user once enough info about the students is taken in.
     -->
     <GridPane id="MiddleGrid" prefHeight="163.0" prefWidth="550.0">
@@ -238,15 +243,21 @@
                 <GridPane.margin>
                     <Insets left="15.0" />
                 </GridPane.margin></Button>
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
 
         </GridPane>
+      <VBox.margin>
+         <Insets left="75.0" />
+      </VBox.margin>
 
     </GridPane>
 
     <Separator id="BottomSeparator" layoutX="10.0" layoutY="137.0" prefHeight="16.0" prefWidth="700.0" />
 
     <!-- Text area where any output and error messages go to the user from the program. -->
-   <TextArea id="TextOutput" fx:id="TextOutput" editable="false" minHeight="200.0" minWidth="650.0" prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: grey;" text="Program has started ...&#10;&#10;">
+   <TextArea id="TextOutput" fx:id="TextOutput" editable="false" minHeight="200.0" minWidth="650.0" prefHeight="650.0" prefWidth="660.0" style="-fx-background-color: grey;" text="Program has started ...&#10;&#10;">
       <VBox.margin>
          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
       </VBox.margin>
@@ -254,5 +265,4 @@
          <Font size="18.0" />
       </font>
    </TextArea>
-
 </VBox>

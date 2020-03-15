@@ -36,7 +36,14 @@ public class Instate extends Student
         {
             payForCredits = ptr.credit * INSTATE_TUITION_PER_CRED;
             total = payForCredits + PART_TIME_STUD_FEE;
-            return total;
+            if (total < TOTAL_MIN)
+            {
+                return TOTAL_MIN;
+            }
+            else
+            {
+                return total;
+            }
         }
         else
         {
@@ -44,13 +51,27 @@ public class Instate extends Student
             {
                 payForCredits = CREDIT_PAYMENT_MAX * INSTATE_TUITION_PER_CRED;
                 total = (payForCredits + FULL_TIME_STUD_FEE) - ptr.funds;
-                return total;
+                if (total < TOTAL_MIN)
+                {
+                    return TOTAL_MIN;
+                }
+                else
+                {
+                    return total;
+                }
             }
             else
             {
                 payForCredits = ptr.credit * INSTATE_TUITION_PER_CRED;
                 total = (payForCredits + FULL_TIME_STUD_FEE) - ptr.funds;
-                return total;
+                if (total < TOTAL_MIN)
+                {
+                    return TOTAL_MIN;
+                }
+                else
+                {
+                    return total;
+                }
             }
         }
     } // tuitionDue()

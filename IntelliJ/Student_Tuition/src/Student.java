@@ -19,6 +19,8 @@ public abstract class Student implements Comparable
 
     public final int CREDIT_PAYMENT_MAX = 15; // Max amount of credits that the students can pay for
 
+    public final int TOTAL_MIN = 0; // min amount for total tuition
+
     /**
      * This is the parameterized Constructor of the Student class.
      * @param fname is the first name

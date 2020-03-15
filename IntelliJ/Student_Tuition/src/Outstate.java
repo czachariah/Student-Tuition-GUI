@@ -37,7 +37,14 @@ public class Outstate extends Student
         {
             payForCredits = ptr.credit * OUTSTATE_TUITION_PER_CRED;
             total = payForCredits + PART_TIME_STUD_FEE;
-            return total;
+            if (total < TOTAL_MIN)
+            {
+                return TOTAL_MIN;
+            }
+            else
+            {
+                return total;
+            }
         }
         else
         {
@@ -47,13 +54,27 @@ public class Outstate extends Student
                 {
                     payForCredits = CREDIT_PAYMENT_MAX * (OUTSTATE_TUITION_PER_CRED - OUTSTATE_DISCOUNT);
                     total = payForCredits + FULL_TIME_STUD_FEE;
-                    return total;
+                    if (total < TOTAL_MIN)
+                    {
+                        return TOTAL_MIN;
+                    }
+                    else
+                    {
+                        return total;
+                    }
                 }
                 else
                 {
                     payForCredits = CREDIT_PAYMENT_MAX * OUTSTATE_TUITION_PER_CRED;
                     total = payForCredits + FULL_TIME_STUD_FEE;
-                    return total;
+                    if (total < TOTAL_MIN)
+                    {
+                        return TOTAL_MIN;
+                    }
+                    else
+                    {
+                        return total;
+                    }
                 }
             }
             else
@@ -62,13 +83,27 @@ public class Outstate extends Student
                 {
                     payForCredits = ptr.credit * (OUTSTATE_TUITION_PER_CRED - OUTSTATE_DISCOUNT);
                     total = payForCredits + FULL_TIME_STUD_FEE;
-                    return total;
+                    if (total < TOTAL_MIN)
+                    {
+                        return TOTAL_MIN;
+                    }
+                    else
+                    {
+                        return total;
+                    }
                 }
                 else
                 {
                     payForCredits = ptr.credit * OUTSTATE_TUITION_PER_CRED;
                     total = payForCredits + FULL_TIME_STUD_FEE;
-                    return total;
+                    if (total < TOTAL_MIN)
+                    {
+                        return TOTAL_MIN;
+                    }
+                    else
+                    {
+                        return total;
+                    }
                 }
             }
         }

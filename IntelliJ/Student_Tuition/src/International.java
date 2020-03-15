@@ -37,13 +37,27 @@ public class International extends Student {
             if (ptr.exchange)
             {
                 total = FULL_TIME_STUD_FEE + INTER_STUD_FEE;
-                return total;
+                if (total < TOTAL_MIN)
+                {
+                    return TOTAL_MIN;
+                }
+                else
+                {
+                    return total;
+                }
             }
             else
             {
                 payForCredits = ptr.credit * INTER_TUITION_PER_CRED;
                 total = payForCredits + PART_TIME_STUD_FEE + INTER_STUD_FEE;
-                return total;
+                if (total < TOTAL_MIN)
+                {
+                    return TOTAL_MIN;
+                }
+                else
+                {
+                    return total;
+                }
             }
         }
         else
@@ -53,13 +67,27 @@ public class International extends Student {
                 if (ptr.exchange)
                 {
                     total = FULL_TIME_STUD_FEE + INTER_STUD_FEE;
-                    return total;
+                    if (total < TOTAL_MIN)
+                    {
+                        return TOTAL_MIN;
+                    }
+                    else
+                    {
+                        return total;
+                    }
                 }
                 else
                 {
                     payForCredits = CREDIT_PAYMENT_MAX * INTER_TUITION_PER_CRED;
                     total = payForCredits + FULL_TIME_STUD_FEE + INTER_STUD_FEE;
-                    return total;
+                    if (total < TOTAL_MIN)
+                    {
+                        return TOTAL_MIN;
+                    }
+                    else
+                    {
+                        return total;
+                    }
                 }
             }
             else
@@ -67,13 +95,27 @@ public class International extends Student {
                 if (ptr.exchange)
                 {
                     total = FULL_TIME_STUD_FEE + INTER_STUD_FEE;
-                    return total;
+                    if (total < TOTAL_MIN)
+                    {
+                        return TOTAL_MIN;
+                    }
+                    else
+                    {
+                        return total;
+                    }
                 }
                 else
                 {
                     payForCredits = ptr.credit * INTER_TUITION_PER_CRED;
                     total = payForCredits + FULL_TIME_STUD_FEE + INTER_STUD_FEE;
-                    return total;
+                    if (total < TOTAL_MIN)
+                    {
+                        return TOTAL_MIN;
+                    }
+                    else
+                    {
+                        return total;
+                    }
                 }
             }
         }
