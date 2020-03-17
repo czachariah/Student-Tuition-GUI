@@ -159,21 +159,11 @@ public class StudentList
     } // print()
 
     /**
-     * This method will be used by the TuitionManger to send to the GUI the list of current students.
-     * @return a pointer to the list of current Students on the list
+     * This method is used by the GUI to retrieve the list of students to print.
+     * @return list of Students to be printed to the Text Area output for the GUI
      */
-    public Student[] getList()
+    public Student[] toStringGUI()
     {
         return list;
-    } // getList()
-
-    /**
-     * This method will be used by the TuitionManager to send to the GUI the total number of
-     * Students on the list.
-     * @return number of students currently on the list
-     */
-    public int getNumStudents()
-    {
-        return numStudents;
-    } // getNumStudents;
+    } // toStringGUI()
 } // StudentList

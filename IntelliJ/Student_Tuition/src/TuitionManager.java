@@ -143,45 +143,6 @@ public class TuitionManager
     } // addInstate()
 
     /**
-     * This method is used by the GUI to add InState Students to the list.
-     * @param firstName is the first name of the Student
-     * @param lastName is the last name of the Student
-     * @param credits is the number of credits that the Student is taking
-     * @param funding is the amount of funding that the Student has
-     * @return true if the Student was added and false if the Student was already in list to begin with
-     */
-    public boolean addInstateGUI(String firstName , String lastName , int credits , int funding)
-    {
-        if (cs213 != null)
-        {
-            Instate newStudent = new Instate(firstName, lastName, credits, funding);
-            if ((cs213.isEmpty() == false) && (cs213.contains(newStudent) == true))
-            {
-                return false;
-            }
-            else
-            {
-                cs213.add(newStudent);
-                return true;
-            }
-        }
-        else
-        {
-            cs213 = new StudentList();
-            Instate newStudent = new Instate(firstName, lastName, credits, funding);
-            if ((cs213.isEmpty() == false) && (cs213.contains(newStudent) == true))
-            {
-                return false;
-            }
-            else
-            {
-                cs213.add(newStudent);
-                return true;
-            }
-        }
-    } // addInstateGUI()
-
-    /**
      * This private method will make an instance of an Out-State Student and
      * add him/her to the list.
      */
@@ -251,45 +212,6 @@ public class TuitionManager
                     + "is an integer number.");
         }
     } // addOutState()
-
-    /**
-     * This method is used by the GUI to add an Out-Of-State Student to the list.
-     * @param firstName the first name of the Student
-     * @param lastName the last name of the Student
-     * @param credits is number of credits the Student is taking
-     * @param isTriState if the Student is in the tri-state or not
-     * @return true if the Student was added and false if the Student is already in the list
-     */
-    public boolean addOutStateGUI(String firstName, String lastName, int credits , boolean isTriState)
-    {
-        if (cs213 != null)
-        {
-            Outstate newStudent = new Outstate(firstName, lastName, credits, isTriState);
-            if ((cs213.isEmpty() == false) && (cs213.contains(newStudent) == true))
-            {
-                return false;
-            }
-            else
-            {
-                cs213.add(newStudent);
-                return true;
-            }
-        }
-        else
-        {
-            cs213 = new StudentList();
-            Outstate newStudent = new Outstate(firstName, lastName, credits, isTriState);
-            if ((cs213.isEmpty() == false) && (cs213.contains(newStudent) == true))
-            {
-                return false;
-            }
-            else
-            {
-                cs213.add(newStudent);
-                return true;
-            }
-        }
-    } // addOutStateGUI()
 
     /**
      * This private method will make an instance of an International Student and
@@ -363,45 +285,6 @@ public class TuitionManager
     } // addIntern()
 
     /**
-     * This method is used by the GUI to add an International Student to the list.
-     * @param firstName is the first name of the Student
-     * @param lastName is the last name of the Student
-     * @param credits is the number of credits the Student is taking
-     * @param isExchange if the Student has exchange status or not
-     * @return true if the Student was added or false if the Student was already in the list
-     */
-    public boolean addInternGUI(String firstName, String lastName, int credits, boolean isExchange)
-    {
-        if (cs213 != null)
-        {
-            International newStudent = new International(firstName,lastName,credits,isExchange);
-            if ((cs213.isEmpty() == false) && (cs213.contains(newStudent) == true))
-            {
-                return false;
-            }
-            else
-            {
-                cs213.add(newStudent);
-                return true;
-            }
-        }
-        else
-        {
-            cs213 = new StudentList();
-            International newStudent = new International(firstName,lastName,credits,isExchange);
-            if ((cs213.isEmpty() == false) && (cs213.contains(newStudent) == true))
-            {
-                return false;
-            }
-            else
-            {
-                cs213.add(newStudent);
-                return true;
-            }
-        }
-    } // addInternGUI()
-
-    /**
      * This private method will be used to remove a specific Student from the list.
      * The Student must be present within the list.
      */
@@ -428,67 +311,10 @@ public class TuitionManager
     } // remove()
 
     /**
-     * This method is used by the GUI to remove a Student from the list.
-     * @param firstName the first name of the Student
-     * @param lastName the last name of the Student
-     * @return true if the Student was removed or false if the Student could not be found in the list
-     */
-    public boolean removeGUI(String firstName, String lastName)
-    {
-        if (cs213 != null)
-        {
-            int cred = CRED_MIN_INTERN; // need a positive integer to hold place for credits
-            boolean placeHolder = true; // need a place holder for the T/F value
-
-            Outstate newStudent = new Outstate(firstName, lastName, cred, placeHolder);
-            if (cs213.remove(newStudent))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-        }
-        else
-        {
-            cs213 = new StudentList();
-            return false;
-        }
-    } // removeGUI()
-
-    /**
      * This private method will print the Students currently on the list.
      */
     private void print()
     {
         cs213.print();
     } // print()
-
-    /**
-     * This method will send the Controller the current list of Students.
-     * @return the current list of Students
-     */
-    public Student[] listForPrinting()
-    {
-        if (cs213 != null)
-        {
-            return cs213.getList();
-        }
-        else
-        {
-            cs213 = new StudentList();
-            return cs213.getList();
-        }
-    } // listForPrinting()
-
-    /**
-     * This method will send the Controller the current number of students.
-     * @return current number of Students on the list
-     */
-    public int numCurrentStudents()
-    {
-        return cs213.getNumStudents();
-    } // numCurrentStudents
 } // TuitionManager

@@ -12,6 +12,7 @@ public class Controller
 {
     // TuitionManger reference variable
     public static TuitionManager backEnd = new TuitionManager();
+    public static StudentList cs213 = new StudentList();
 
     public final int CRED_MIN_IN_OUT = 0;
     public final int CRED_MIN_INTERN = 9;
@@ -150,7 +151,7 @@ public class Controller
                 funds = Integer.parseInt(fundString.trim());
                 if (funds >= FUND_MIN)
                 {
-                    if (backEnd.addInstateGUI(firstName,lastName,credits,funds))
+                    if (addInstateGUI(firstName,lastName,credits,funds))
                     {
                         TextOutput.appendText(firstName + " " + lastName + " is added to the list.\n\n");
                         setAllDefault();
@@ -173,7 +174,7 @@ public class Controller
         }
         else
         {
-            if (backEnd.addInstateGUI(firstName,lastName,credits,DEFAULT_FUNDING))
+            if (addInstateGUI(firstName,lastName,credits,DEFAULT_FUNDING))
             {
                 TextOutput.appendText(firstName + " " + lastName + " is added to the list.\n\n");
                 setAllDefault();
@@ -187,6 +188,45 @@ public class Controller
     } // addInStateStudent
 
     /**
+     * This method is used by addInStateStudent() to add InState Students to the list.
+     * @param firstName is the first name of the Student
+     * @param lastName is the last name of the Student
+     * @param credits is the number of credits that the Student is taking
+     * @param funding is the amount of funding that the Student has
+     * @return true if the Student was added and false if the Student was already in list to begin with
+     */
+    private boolean addInstateGUI(String firstName , String lastName , int credits , int funding)
+    {
+        if (cs213 != null)
+        {
+            Instate newStudent = new Instate(firstName, lastName, credits, funding);
+            if ((cs213.isEmpty() == false) && (cs213.contains(newStudent) == true))
+            {
+                return false;
+            }
+            else
+            {
+                cs213.add(newStudent);
+                return true;
+            }
+        }
+        else
+        {
+            cs213 = new StudentList();
+            Instate newStudent = new Instate(firstName, lastName, credits, funding);
+            if ((cs213.isEmpty() == false) && (cs213.contains(newStudent) == true))
+            {
+                return false;
+            }
+            else
+            {
+                cs213.add(newStudent);
+                return true;
+            }
+        }
+    } // addInstateGUI()
+
+    /**
      * This is a private method used to add Out-State Students to the list.
      * @param firstName is the first name of the Student
      * @param lastName is the last name of the Student
@@ -196,7 +236,7 @@ public class Controller
     {
         if (isTriStateCheckClicked)
         {
-            if (backEnd.addOutStateGUI(firstName,lastName,credits,TRUE))
+            if (addOutStateGUI(firstName,lastName,credits,TRUE))
             {
                 TextOutput.appendText(firstName + " " + lastName + " is added to the list.\n\n");
                 setAllDefault();
@@ -209,7 +249,7 @@ public class Controller
         }
         else
         {
-            if (backEnd.addOutStateGUI(firstName,lastName,credits,FALSE))
+            if (addOutStateGUI(firstName,lastName,credits,FALSE))
             {
                 TextOutput.appendText(firstName + " " + lastName + " is added to the list.\n\n");
                 setAllDefault();
@@ -223,6 +263,45 @@ public class Controller
     } // addOutStateStudent()
 
     /**
+     * This method is used by addOutStateStudent() to add an Out-Of-State Student to the list.
+     * @param firstName the first name of the Student
+     * @param lastName the last name of the Student
+     * @param credits is number of credits the Student is taking
+     * @param isTriState if the Student is in the tri-state or not
+     * @return true if the Student was added and false if the Student is already in the list
+     */
+    private boolean addOutStateGUI(String firstName, String lastName, int credits , boolean isTriState)
+    {
+        if (cs213 != null)
+        {
+            Outstate newStudent = new Outstate(firstName, lastName, credits, isTriState);
+            if ((cs213.isEmpty() == false) && (cs213.contains(newStudent) == true))
+            {
+                return false;
+            }
+            else
+            {
+                cs213.add(newStudent);
+                return true;
+            }
+        }
+        else
+        {
+            cs213 = new StudentList();
+            Outstate newStudent = new Outstate(firstName, lastName, credits, isTriState);
+            if ((cs213.isEmpty() == false) && (cs213.contains(newStudent) == true))
+            {
+                return false;
+            }
+            else
+            {
+                cs213.add(newStudent);
+                return true;
+            }
+        }
+    } // addOutStateGUI()
+
+    /**
      * This is a private method used to add an International Student to the list.
      * @param firstName is the first name of the Student
      * @param lastName is the last name of the Student
@@ -232,7 +311,7 @@ public class Controller
     {
         if (isExchangeCheckClicked)
         {
-            if (backEnd.addInternGUI(firstName,lastName,credits,TRUE))
+            if (addInternGUI(firstName,lastName,credits,TRUE))
             {
                 TextOutput.appendText(firstName + " " + lastName + " is added to the list.\n\n");
                 setAllDefault();
@@ -245,7 +324,7 @@ public class Controller
         }
         else
         {
-            if (backEnd.addInternGUI(firstName,lastName,credits,FALSE))
+            if (addInternGUI(firstName,lastName,credits,FALSE))
             {
                 TextOutput.appendText(firstName + " " + lastName + " is added to the list.\n\n");
                 setAllDefault();
@@ -257,6 +336,45 @@ public class Controller
             }
         }
     } // addInternationalStudent()
+
+    /**
+     * This method is used by addInternationalStudent() to add an International Student to the list.
+     * @param firstName is the first name of the Student
+     * @param lastName is the last name of the Student
+     * @param credits is the number of credits the Student is taking
+     * @param isExchange if the Student has exchange status or not
+     * @return true if the Student was added or false if the Student was already in the list
+     */
+    private boolean addInternGUI(String firstName, String lastName, int credits, boolean isExchange)
+    {
+        if (cs213 != null)
+        {
+            International newStudent = new International(firstName,lastName,credits,isExchange);
+            if ((cs213.isEmpty() == false) && (cs213.contains(newStudent) == true))
+            {
+                return false;
+            }
+            else
+            {
+                cs213.add(newStudent);
+                return true;
+            }
+        }
+        else
+        {
+            cs213 = new StudentList();
+            International newStudent = new International(firstName,lastName,credits,isExchange);
+            if ((cs213.isEmpty() == false) && (cs213.contains(newStudent) == true))
+            {
+                return false;
+            }
+            else
+            {
+                cs213.add(newStudent);
+                return true;
+            }
+        }
+    } // addInternGUI()
 
     /**
      * This method is connected to the InState Radio Button. Will toggle the other radio buttons off
@@ -541,7 +659,7 @@ public class Controller
             return;
         }
 
-        if (backEnd.removeGUI(firstName,lastName))
+        if (removeGUI(firstName,lastName))
         {
             TextOutput.appendText(firstName + " " + lastName + " has been removed from the list.\n\n");
             setAllDefault();
@@ -554,6 +672,37 @@ public class Controller
     } // removeStudent
 
     /**
+     * This method is used by removeStudent() to remove a Student from the list.
+     * @param firstName the first name of the Student
+     * @param lastName the last name of the Student
+     * @return true if the Student was removed or false if the Student could not be found in the list
+     */
+    private boolean removeGUI(String firstName, String lastName)
+    {
+        if (cs213 != null)
+        {
+            int cred = CRED_MIN_INTERN; // need a positive integer to hold place for credits
+            boolean placeHolder = true; // need a place holder for the T/F value
+
+            Outstate newStudent = new Outstate(firstName, lastName, cred, placeHolder);
+            if (cs213.remove(newStudent))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        else
+        {
+            cs213 = new StudentList();
+            return false;
+        }
+    } // removeGUI()
+
+    /**
      * This method will be connected to the Print button.
      * This will print out the current Students that are in the list
      * along with the tuition that each one needs to pay.
@@ -561,23 +710,23 @@ public class Controller
     public void printStudents()
     {
         setAllDefault();
-        if (backEnd == null)
+        if (cs213 == null)
         {
-            backEnd = new TuitionManager();
+            cs213 = new StudentList();
             TextOutput.appendText("There are currently no Students on the list.\n\n");
             return;
         }
-        Student[] list = backEnd.listForPrinting();
-        int numStudents = backEnd.numCurrentStudents();
+        Student[] list = cs213.toStringGUI();
+        int listSize = list.length;
 
-        if (backEnd.cs213.isEmpty())
+        if (cs213.isEmpty())
         {
             TextOutput.appendText("There are currently no Students on the list.\n\n");
         }
         else
         {
             TextOutput.appendText("Here are the current Students on the list with the tuition amount they are required to pay:\n");
-            for (int i = 0 ; i < numStudents ; i++)
+            for (int i = 0 ; i < listSize && list[i]!= null ; i++)
             {
                 TextOutput.appendText(list[i].toString() + " , Tuition Due: $" + list[i].tuitionDue() + "\n");
             }
