@@ -10,8 +10,6 @@ import org.w3c.dom.Text;
  */
 public class Controller
 {
-    // TuitionManger reference variable
-    public static TuitionManager backEnd = new TuitionManager();
     public static StudentList cs213 = new StudentList();
 
     public final int CRED_MIN_IN_OUT = 0;
