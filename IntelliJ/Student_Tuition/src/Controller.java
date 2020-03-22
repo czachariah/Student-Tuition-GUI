@@ -1,6 +1,5 @@
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import org.w3c.dom.Text;
 
 /**
  * This class is the controller for all the actions for the GUI and will connect
