@@ -15,14 +15,14 @@ public class Main extends Application
     public final int FIXED_LENGTH = 1000;
 
     /**
-     * This method will build the GUI using sample.fxml and get it ready for the User.
+     * This method will build the GUI using Proj3GUI.fxml and get it ready for the User.
      * @param primaryStage the main Student-Tuition-GUI Stage
      * @throws Exception any Exception
      */
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Proj3GUI.fxml"));
         primaryStage.setTitle("Program 3 - Tuition Manager");
         primaryStage.setScene(new Scene(root, FIXED_WIDTH, FIXED_LENGTH));
         primaryStage.setResizable(false);
