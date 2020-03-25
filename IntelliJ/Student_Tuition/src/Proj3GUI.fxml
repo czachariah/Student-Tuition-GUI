@@ -8,8 +8,8 @@
 
 <!-- @author Chris Zachariah (cvz2) -->
 <!-- @author Anthony Topol (at877) -->
-<!-- Create a VBox Container that will hold my three sections of info. -->
 
+<!-- Create a VBox Container that will hold my three sections of info. -->
 <VBox id="MainBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <opaqueInsets>
         <Insets left="100.0" />
